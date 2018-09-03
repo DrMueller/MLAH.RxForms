@@ -6,10 +6,14 @@ import * as v from './validator-implementations';
 
 @Injectable()
 export class ValidatorFactoryService {
-  constructor( @Inject(ValidatorProviderFactory.APP_VALIDATOR_TOKEN) private validators: IValidator[]) { }
+  constructor(@Inject(ValidatorProviderFactory.APP_VALIDATOR_TOKEN) private validators: IValidator[]) { }
 
   public minLength(minLength: number): IValidator {
     return this.getByKey(v.MinLengthValidator.key, minLength);
+  }
+
+  public numeric(): IValidator {
+    return this.getByKey(v.NumericValidator.key);
   }
 
   public stringMatch(match: string): IValidator {

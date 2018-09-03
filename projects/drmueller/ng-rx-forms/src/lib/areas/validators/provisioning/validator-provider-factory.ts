@@ -26,6 +26,11 @@ export class ValidatorProviderFactory {
       provide: ValidatorProviderFactory.APP_VALIDATOR_TOKEN,
       multi: true,
       useClass: v.RequiredValidator
+    },
+    {
+      provide: ValidatorProviderFactory.APP_VALIDATOR_TOKEN,
+      multi: true,
+      useClass: v.NumericValidator
     }
   ];
 }

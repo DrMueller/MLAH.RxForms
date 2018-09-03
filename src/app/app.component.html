@@ -27,14 +27,22 @@
         </div>
 
         <div class="form-field">
-            <drm-form-control-with-validation [formGroup]="dataForm.formGroup" [validatedControl]="dataForm.getValidatedControl('birthDate')">
-              <mat-form-field>
-                <input [matDatepicker]="birthDatePicker" matInput type="text" class="form-control" placeholder="Enter birth date" formControlName="birthDate">
-                <mat-datepicker-toggle matSuffix [for]="birthDatePicker"></mat-datepicker-toggle>
-                <mat-datepicker #birthDatePicker></mat-datepicker>
-              </mat-form-field>
-            </drm-form-control-with-validation>
-          </div>
+          <drm-form-control-with-validation [formGroup]="dataForm.formGroup" [validatedControl]="dataForm.getValidatedControl('birthDate')">
+            <mat-form-field>
+              <input [matDatepicker]="birthDatePicker" matInput type="text" class="form-control" placeholder="Enter birth date" formControlName="birthDate">
+              <mat-datepicker-toggle matSuffix [for]="birthDatePicker"></mat-datepicker-toggle>
+              <mat-datepicker #birthDatePicker></mat-datepicker>
+            </mat-form-field>
+          </drm-form-control-with-validation>
+        </div>
+
+        <div class="form-field">
+          <drm-form-control-with-validation [formGroup]="dataForm.formGroup" [validatedControl]="dataForm.getValidatedControl('height')">
+            <mat-form-field>
+              <input matInput type="text" class="form-control" placeholder="Enter height" formControlName="height">
+            </mat-form-field>
+          </drm-form-control-with-validation>
+        </div>
       </div>
     </form>
   </mat-card-content>

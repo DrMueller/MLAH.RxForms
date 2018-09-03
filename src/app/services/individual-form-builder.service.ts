@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 
+import { nameof } from '@drmueller/language-extensions';
+
 import {
     FormValidationService, FormWithValidation, RxFormBuilder, ValidatorFactoryService
 } from 'projects/drmueller/ng-rx-forms/src/public_api';
+import { Individual } from '../models';
 
 @Injectable()
 export class IndividualFormBuilderService {
@@ -15,8 +18,8 @@ export class IndividualFormBuilderService {
 
   public buildForm(): FormWithValidation {
     return this.formBuilder.startBuildingFormGroup(this.formValidationService)
-      .withControl('firstName')
-      .withModelBinding('firstName')
+      .withControl(nameof<Individual>('firstName'))
+      .withModelBinding(nameof<Individual>('firstName'))
       .withValidation(this.validatorFactory.required())
       .buildValidationKeyErrorMap()
       .buildControl()
@@ -30,6 +33,9 @@ export class IndividualFormBuilderService {
       .buildControl()
       .withControl('height')
       .withDefaultValue(180)
+      .withValidation(this.validatorFactory.numeric())
+      .withCustomErrorMessage('value not numeric!')
+      .buildValidationKeyErrorMap()
       .buildControl()
       .withFormValidationWatcher()
       .withDebounceTime(500)
