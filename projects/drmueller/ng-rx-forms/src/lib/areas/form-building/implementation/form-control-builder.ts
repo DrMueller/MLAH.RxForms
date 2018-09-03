@@ -4,13 +4,13 @@ import {
   ValidatedControl, ValidationControlErrorsMap, ValidationKeyErrorMap
 } from '../../form-validation';
 import { IValidator } from '../../validators';
-import { IFormControlBuilder, IRxFormBuilder, IValidationKeyErrorMapBuilder } from '../interfaces';
+import { IFormControlBuilder, IRxFormBuilder, IValidationKeyErrorMapBuilder } from '..';
 import { RxFormBuilder } from './rx-form-builder';
 import { ValidationKeyErrorMapBuilder } from './validation-key-error-map-builder';
 
-export class FormControlBuilder implements IFormControlBuilder {
+export class FormControlBuilder<T> implements IFormControlBuilder<T> {
   private defaultValue: any = null;
-  private modelPropertyName: string | null = null;
+  private modelPropertyName: keyof T | null = null;
   private validationErrorKeyMaps: ValidationKeyErrorMap[] = [];
   private validators: IValidator[] = [];
 
@@ -18,28 +18,28 @@ export class FormControlBuilder implements IFormControlBuilder {
     private controlName: string,
     private controlErrorsMaps: ValidationControlErrorsMap[],
     private formGroup: FormGroup,
-    private validatedControls: ValidatedControl[],
-    private formBuilder: RxFormBuilder) {
+    private validatedControls: ValidatedControl<T>[],
+    private formBuilder: RxFormBuilder<T>) {
   }
 
-  public buildControl(): IRxFormBuilder {
+  public buildControl(): IRxFormBuilder<T> {
     this.createAndAddFormControl();
     this.createAndAddValidatedControl();
     this.createAndPushValidationErrorMap();
     return this.formBuilder;
   }
 
-  public withDefaultValue(defaultValue: any): IFormControlBuilder {
+  public withDefaultValue(defaultValue: any): IFormControlBuilder<T> {
     this.defaultValue = defaultValue;
     return this;
   }
 
-  public withModelBinding(propertyName: string): IFormControlBuilder {
+  public withModelBinding(propertyName: keyof T): IFormControlBuilder<T> {
     this.modelPropertyName = propertyName;
     return this;
   }
 
-  public withValidation(validator: IValidator): IValidationKeyErrorMapBuilder {
+  public withValidation(validator: IValidator): IValidationKeyErrorMapBuilder<T> {
     this.validators.push(validator);
     const validationRuleBuilder = new ValidationKeyErrorMapBuilder(this.validationErrorKeyMaps, validator, this);
     return validationRuleBuilder;

@@ -7,8 +7,8 @@ import { ValidatedControl } from '../../models';
   templateUrl: './form-validation-error-display.component.html',
   styleUrls: ['./form-validation-error-display.component.scss']
 })
-export class FormValidationErrorDisplayComponent implements OnInit {
-  @Input() public validatedControl: ValidatedControl;
+export class FormValidationErrorDisplayComponent<T> implements OnInit {
+  @Input() public validatedControl: ValidatedControl<T>;
 
   constructor() { }
 

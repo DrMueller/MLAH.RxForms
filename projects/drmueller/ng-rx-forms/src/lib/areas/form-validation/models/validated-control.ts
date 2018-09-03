@@ -1,10 +1,10 @@
 import { ControlValidationErrorContainer } from './control-validation-error-container';
 import { ValidationError } from './validation-error';
 
-export class ValidatedControl {
+export class ValidatedControl<T> {
   private _errorContainer = ControlValidationErrorContainer.nullObject;
 
-  public constructor(public controlName: string, public modelPropertyName: string | null) {
+  public constructor(public controlName: string, public modelPropertyName: keyof T | null) {
   }
 
   public get errorContainer(): ControlValidationErrorContainer {
@@ -15,7 +15,7 @@ export class ValidatedControl {
     return this.errorContainer.validationErrors.length > 0;
   }
 
-  public static create(controlName: string, modelPropertyName: string | null = null): ValidatedControl {
+  public static create<T>(controlName: string, modelPropertyName: keyof T | null = null): ValidatedControl<T> {
     return new ValidatedControl(controlName, modelPropertyName);
   }
 

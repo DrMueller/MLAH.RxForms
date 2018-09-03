@@ -3,8 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { FormValidationService } from './form-validation';
-import { RxFormBuilder } from './form-building';
+import { RxFormBuilder } from './form-building/implementation';
 import { ValidatorFactoryService } from './validators';
 import { ValidatorProviderFactory } from './validators/provisioning';
 
@@ -53,7 +52,6 @@ export class RxFormsModule {
       providers: [
         ValidatorProviderFactory.ValidatorProviders,
         RxFormBuilder,
-        FormValidationService,
         ValidatorFactoryService
       ]
     };

@@ -11,8 +11,7 @@ import { Individual } from './models';
 })
 
 export class AppComponent implements OnInit {
-  public dataForm: FormWithValidation;
-
+  public dataForm: FormWithValidation<Individual>;
   public individual: Individual = new Individual();
 
   public constructor(private formBuilder: IndividualFormBuilderService) {

@@ -4,12 +4,12 @@ import { AbstractControl, FormGroup } from '@angular/forms';
 import { ValidatedForm, ValidationControlErrorsMap, ValidationError } from '..';
 
 @Injectable()
-export class FormValidationService {
+export class FormValidationService<T> {
   private controlErrorsMaps: ValidationControlErrorsMap[];
   private formGroup: FormGroup;
-  private validatedForm: ValidatedForm;
+  private validatedForm: ValidatedForm<T>;
 
-  public initialize(formGroup: FormGroup, controlErrorsMaps: ValidationControlErrorsMap[], validatedForm: ValidatedForm): void {
+  public initialize(formGroup: FormGroup, controlErrorsMaps: ValidationControlErrorsMap[], validatedForm: ValidatedForm<T>): void {
     this.controlErrorsMaps = controlErrorsMaps;
     this.formGroup = formGroup;
     this.validatedForm = validatedForm;

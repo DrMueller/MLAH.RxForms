@@ -8,8 +8,8 @@ import { ValidatedControl } from '../../models';
   templateUrl: './form-control-with-validation.component.html',
   styleUrls: ['./form-control-with-validation.component.scss']
 })
-export class FormControlWithValidationComponent implements OnInit {
-  @Input() public validatedControl: ValidatedControl;
+export class FormControlWithValidationComponent<T> implements OnInit {
+  @Input() public validatedControl: ValidatedControl<T>;
   @Input() public formGroup: FormGroup;
 
   constructor() { }

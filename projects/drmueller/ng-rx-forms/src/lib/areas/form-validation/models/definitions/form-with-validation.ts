@@ -2,8 +2,8 @@ import { FormGroup } from '@angular/forms';
 
 import { ValidatedControl, ValidatedForm } from '../..';
 
-export class FormWithValidation {
-  constructor(private _formGroup: FormGroup, private validatedForm: ValidatedForm) {
+export class FormWithValidation<T> {
+  constructor(private _formGroup: FormGroup, private validatedForm: ValidatedForm<T>) {
   }
 
   public get formGroup(): FormGroup {
@@ -14,7 +14,7 @@ export class FormWithValidation {
     return this._formGroup.valid;
   }
 
-  public setControlDataFromModel(model: any): void {
+  public setControlDataFromModel(model: T): void {
     const boundControls = this.validatedForm.getControlsWithModelBinding();
     boundControls.forEach(c => {
       const modelValue = model[c.modelPropertyName];
@@ -22,7 +22,7 @@ export class FormWithValidation {
     });
   }
 
-  public setModelFromControls(model: any): void {
+  public setModelFromControls(model: T): void {
     const boundControls = this.validatedForm.getControlsWithModelBinding();
     boundControls.forEach(c => {
       const controlValue = this._formGroup.controls[c.controlName].value;
@@ -30,7 +30,7 @@ export class FormWithValidation {
     });
   }
 
-  public getValidatedControl(controlName: string): ValidatedControl {
+  public getValidatedControl(controlName: string): ValidatedControl<T> {
     return this.validatedForm.find(controlName);
   }
 }

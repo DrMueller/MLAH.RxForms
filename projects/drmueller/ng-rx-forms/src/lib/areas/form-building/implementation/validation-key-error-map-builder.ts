@@ -1,22 +1,22 @@
 import { ValidationError, ValidationKeyErrorMap } from '../../form-validation';
 import { IValidator } from '../../validators';
-import { IFormControlBuilder, IValidationKeyErrorMapBuilder } from '../interfaces';
+import { IFormControlBuilder, IValidationKeyErrorMapBuilder } from '..';
 
-export class ValidationKeyErrorMapBuilder implements IValidationKeyErrorMapBuilder {
+export class ValidationKeyErrorMapBuilder<T> implements IValidationKeyErrorMapBuilder<T> {
   private _customErrorMessage: string | null = null;
 
   constructor(
     private keyErrorMaps: ValidationKeyErrorMap[],
     private validator: IValidator,
-    private formControlBuilder: IFormControlBuilder) {
+    private formControlBuilder: IFormControlBuilder<T>) {
   }
 
-  public withCustomErrorMessage(errorMessage: string): IValidationKeyErrorMapBuilder {
+  public withCustomErrorMessage(errorMessage: string): IValidationKeyErrorMapBuilder<T> {
     this._customErrorMessage = errorMessage;
     return this;
   }
 
-  public buildValidationKeyErrorMap(): IFormControlBuilder {
+  public buildValidationKeyErrorMap(): IFormControlBuilder<T> {
     const errorMessage = this.getErrorMessage();
     const keyErrorMap = new ValidationKeyErrorMap(this.validator.key, new ValidationError(errorMessage));
 
