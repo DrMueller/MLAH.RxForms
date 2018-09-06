@@ -2,7 +2,7 @@ import { ControlValidationErrorContainer } from './control-validation-error-cont
 import { ValidationError } from './validation-error';
 
 export class ValidatedControl<T> {
-  private _errorContainer = ControlValidationErrorContainer.nullObject;
+  private _errorContainer = new ControlValidationErrorContainer();
 
   public constructor(public controlName: string, public modelPropertyName: keyof T | null) {
   }

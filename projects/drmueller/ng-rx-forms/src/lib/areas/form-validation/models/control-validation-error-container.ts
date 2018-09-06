@@ -8,10 +8,6 @@ export class ControlValidationErrorContainer {
     return this._validationErrors;
   }
 
-  public static get nullObject(): ControlValidationErrorContainer {
-    return new ControlValidationErrorContainer();
-  }
-
   public setValidationErrors(validationErrors: ValidationError[]) {
     this._validationErrors = validationErrors;
   }
