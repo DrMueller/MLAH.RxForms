@@ -1,1 +1,1 @@
-export { IValidator, ValidatorFactoryService } from './services';
+export * from './services';
