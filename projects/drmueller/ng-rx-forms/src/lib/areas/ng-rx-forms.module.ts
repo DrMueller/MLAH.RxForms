@@ -45,10 +45,10 @@ import {
   ]
 })
 
-export class RxFormsModule {
+export class NgRxFormsModule {
   public static forRoot(): ModuleWithProviders {
     return {
-      ngModule: RxFormsModule,
+      ngModule: NgRxFormsModule,
       providers: [
         ValidatorProviderFactory.ValidatorProviders,
         RxFormBuilder,

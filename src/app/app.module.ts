@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { MatCardModule, MatButtonModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
-import { RxFormsModule } from 'projects/drmueller/ng-rx-forms/src/public_api';
+import { NgRxFormsModule } from 'projects/drmueller/ng-rx-forms/src/public_api';
 
 import * as services from './services';
 
@@ -15,7 +15,7 @@ import * as services from './services';
     BrowserModule,
     MatCardModule,
     MatButtonModule,
-    RxFormsModule.forRoot()
+    NgRxFormsModule.forRoot()
   ],
   providers: [
     services.IndividualFormBuilderService
