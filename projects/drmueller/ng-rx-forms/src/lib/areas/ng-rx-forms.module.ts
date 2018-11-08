@@ -1,5 +1,4 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -16,10 +15,8 @@ import {
   MatNativeDateModule
 } from '@angular/material';
 
-
 @NgModule({
   exports: [
-    BrowserAnimationsModule,
     ReactiveFormsModule,
     MatDatepickerModule,
     FormsModule,
@@ -30,7 +27,6 @@ import {
     comp.FormControlWithValidationComponent
   ],
   imports: [
-    BrowserAnimationsModule,
     CommonModule,
     MatDatepickerModule,
     FormsModule,
