@@ -1,5 +1,5 @@
 import { ValidationError, ValidationKeyErrorMap } from '../../form-validation';
-import { IValidator } from '../../validators';
+import { IValidator } from '../../validators/services';
 import { IFormControlBuilder, IValidationKeyErrorMapBuilder } from '..';
 
 export class ValidationKeyErrorMapBuilder<T> implements IValidationKeyErrorMapBuilder<T> {

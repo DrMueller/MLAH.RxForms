@@ -1,5 +1,5 @@
 import { IRxFormBuilder, IValidationKeyErrorMapBuilder } from '.';
-import { IValidator } from '../validators';
+import { IValidator } from '../validators/services';
 
 export interface IFormControlBuilder<T> {
   buildControl(): IRxFormBuilder<T>;

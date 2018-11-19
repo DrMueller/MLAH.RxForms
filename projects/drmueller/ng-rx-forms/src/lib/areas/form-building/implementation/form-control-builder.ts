@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import {
   ValidatedControl, ValidationControlErrorsMap, ValidationKeyErrorMap
 } from '../../form-validation';
-import { IValidator } from '../../validators';
+import { IValidator } from '../../validators/services';
 import { IFormControlBuilder, IRxFormBuilder, IValidationKeyErrorMapBuilder } from '..';
 import { RxFormBuilder } from './rx-form-builder';
 import { ValidationKeyErrorMapBuilder } from './validation-key-error-map-builder';
