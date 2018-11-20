@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { RxFormBuilder } from './form-building/implementation/rx-form-builder';
 import { ValidatorFactoryService } from './validators/services/validator-factory.service';
+import { ValidatorProviderFactory } from './validators/provisioning';
 
 import * as comp from './form-validation/components';
 
@@ -21,9 +22,9 @@ import {
     FormsModule,
     MatInputModule,
     MatFormFieldModule,
-    MatNativeDateModule
-    // comp.FormValidationErrorDisplayComponent,
-    // comp.FormControlWithValidationComponent
+    MatNativeDateModule,
+    comp.FormValidationErrorDisplayComponent,
+    comp.FormControlWithValidationComponent
   ],
   imports: [
     CommonModule,
@@ -45,7 +46,7 @@ export class NgRxFormsModule {
     return {
       ngModule: NgRxFormsModule,
       providers: [
-        // validatorsProvisioning.ValidatorProviderFactory.ValidatorProviders,
+        ValidatorProviderFactory.ValidatorProviders,
         RxFormBuilder,
         ValidatorFactoryService
       ]
