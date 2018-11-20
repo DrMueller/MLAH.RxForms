@@ -2,8 +2,8 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import * as formBuilding from './form-building/implementation';
-import { ValidatorFactoryService } from './validators/services';
+import * as formBuilding from './form-building/implementation/index';
+import { ValidatorFactoryService } from './validators/services/index';
 
 import * as comp from './form-validation/components';
 
