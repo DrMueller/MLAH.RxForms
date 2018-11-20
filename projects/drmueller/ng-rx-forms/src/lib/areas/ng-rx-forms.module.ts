@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import * as formBuilding from './form-building/implementation';
-import * as validatorServices from './validators/services';
-import * as validatorsProvisioning from './validators/provisioning';
+import { ValidatorFactoryService } from './validators/services';
 
 import * as comp from './form-validation/components';
 
@@ -46,9 +45,9 @@ export class NgRxFormsModule {
     return {
       ngModule: NgRxFormsModule,
       providers: [
-        validatorsProvisioning.ValidatorProviderFactory.ValidatorProviders,
+        // validatorsProvisioning.ValidatorProviderFactory.ValidatorProviders,
         formBuilding.RxFormBuilder,
-        validatorServices.ValidatorFactoryService
+        ValidatorFactoryService
       ]
     };
   }
