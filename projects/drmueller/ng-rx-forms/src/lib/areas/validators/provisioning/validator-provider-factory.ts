@@ -1,6 +1,6 @@
 import { InjectionToken, ClassProvider } from '@angular/core';
 
-import * as v from '../services/validator-implementations';
+import { MinLengthValidator } from '../services/validator-implementations/min-length.validator';
 
 export class ValidatorProviderFactory {
   public static APP_VALIDATOR_TOKEN = new InjectionToken('app_validator');
@@ -10,27 +10,27 @@ export class ValidatorProviderFactory {
     {
       provide: ValidatorProviderFactory.APP_VALIDATOR_TOKEN,
       multi: true,
-      useClass: v.MinLengthValidator
-    },
-    {
-      provide: ValidatorProviderFactory.APP_VALIDATOR_TOKEN,
-      multi: true,
-      useClass: v.StringMatchValidator
-    },
-    {
-      provide: ValidatorProviderFactory.APP_VALIDATOR_TOKEN,
-      multi: true,
-      useClass: v.PatternValidator
-    },
-    {
-      provide: ValidatorProviderFactory.APP_VALIDATOR_TOKEN,
-      multi: true,
-      useClass: v.RequiredValidator
-    },
-    {
-      provide: ValidatorProviderFactory.APP_VALIDATOR_TOKEN,
-      multi: true,
-      useClass: v.NumericValidator
+      useClass: MinLengthValidator
     }
+    // {
+    //   provide: ValidatorProviderFactory.APP_VALIDATOR_TOKEN,
+    //   multi: true,
+    //   useClass: v.StringMatchValidator
+    // },
+    // {
+    //   provide: ValidatorProviderFactory.APP_VALIDATOR_TOKEN,
+    //   multi: true,
+    //   useClass: v.PatternValidator
+    // },
+    // {
+    //   provide: ValidatorProviderFactory.APP_VALIDATOR_TOKEN,
+    //   multi: true,
+    //   useClass: v.RequiredValidator
+    // },
+    // {
+    //   provide: ValidatorProviderFactory.APP_VALIDATOR_TOKEN,
+    //   multi: true,
+    //   useClass: v.NumericValidator
+    // }
   ];
 }
